@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oasis | Local App Store - Coming Soon</title>
+    <style>
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
 
+        /* Body & Background */
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Main Container */
+        .container {
+            padding: 40px;
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        /* Logo Text styling */
+        .logo {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #38bdf8;
+            margin-bottom: 5px;
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+            text-transform: uppercase;
+        }
+
+        /* Subtitle Styling */
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 6px;
+            color: #94a3b8;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        /* Coming Soon Badge */
+        .coming-soon-badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        /* Description Paragraph */
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 40px;
+        }
+
+        /* Progress Line Animation */
+        .progress-container {
+            width: 100%;
+            height: 4px;
+            background: #334155;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            width: 30%;
+            height: 100%;
+            background: #38bdf8;
+            border-radius: 4px;
+            position: absolute;
+            animation: loading 2s infinite ease-in-out;
+        }
+
+        /* Footer Text */
+        .footer {
+            margin-top: 50px;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* Animations */
+        @keyframes loading {
+            0% { left: -30%; }
+            50% { left: 100%; }
+            100% { left: -30%; }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(56, 189, 248, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .logo { font-size: 3rem; }
+            .subtitle { font-size: 1rem; letter-spacing: 4px; }
+            .description { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="logo">OASIS</div>
+        <div class="subtitle">Local App Store</div>
+
+        <!-- Coming Soon Status -->
+        <div class="coming-soon-badge">Coming Soon</div>
+        
+        <!-- Description -->
+        <p class="description">
+            Your secure, offline-first ecosystem is under construction. We are building a private space to explore and install apps locally, without the tracking.
+        </p>
+
+        <!-- Animated Loading Bar -->
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            &copy; 2026 Oasis App Repository. All systems offline (by design).
+        </div>
+    </div>
+
+</body>
+</html>
