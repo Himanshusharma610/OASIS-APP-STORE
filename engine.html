@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tor Network Search Index</title>
+    <style>
+        :root {
+            --bg-color: #0f111a;
+            --card-bg: #1e2130;
+            --text-main: #e0e6ed;
+            --text-muted: #8b949e;
+            --accent: #00ff88;
+            --border: #30363d;
+            --warning-bg: rgba(255, 60, 60, 0.1);
+            --warning-border: #ff3c3c;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--accent);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .opsec-warning {
+            background-color: var(--warning-bg);
+            border-left: 4px solid var(--warning-border);
+            padding: 1rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .engine-card, .info-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .engine-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+
+        .engine-name {
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .engine-desc {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .onion-link-container {
+            background: #010409;
+            padding: 0.75rem;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #333;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        code {
+            color: #58a6ff;
+            word-break: break-all;
+        }
+
+        button {
+            background: var(--accent);
+            color: #0f111a;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+            font-family: inherit;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #00cc6a;
+        }
+
+        /* Styles for the new info section */
+        .info-card h2 {
+            color: #58a6ff;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        .info-card h3 {
+            color: var(--text-main);
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 0;
+        }
+
+        .info-card ul {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            padding-left: 1.2rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+
+        .dev-badge {
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Onion Search Directory</h1>
+            <p style="color: var(--text-muted);">A curated list of Tor network search engines.</p>
+        </header>
+
+        <div class="opsec-warning">
+            <strong>⚠️ OpSec Alert:</strong> Use the <strong>Tor Browser</strong> (preferably in a Tails or Whonix environment) to access these links. Never enter any personal details that could reveal your identity on these platforms.
+        </div>
+
+        <!-- DuckDuckGo -->
+        <div class="engine-card">
+            <h2 class="engine-name">DuckDuckGo (Onion)</h2>
+            <p class="engine-desc">The default search engine for the Tor browser. It provides tracking-free searches and displays dark web results alongside standard web results.</p>
+            <div class="onion-link-container">
+                <code id="link-ddg">duckduckgogg42xjoc72x3sjiapccxgxzjteweaxpolyymqnkzsfkad.onion</code>
+                <button onclick="copyLink('link-ddg', this)">Copy</button>
+            </div>
+        </div>
+
+        <!-- Ahmia -->
+        <div class="engine-card">
+            <h2 class="engine-name">Ahmia</h2>
+            <p class="engine-desc">A reliable indexer that filters out abusive material and illegal content through strict policies.</p>
+            <div class="onion-link-container">
+                <code id="link-ahmia">juhanurmihvkcgqfwvqcxponigzhs2batwxajeuicqnsrponvxlq4qyd.onion</code>
+                <button onclick="copyLink('link-ahmia', this)">Copy</button>
+            </div>
+        </div>
+
+        <!-- Torch -->
+        <div class="engine-card">
+            <h2 class="engine-name">Torch</h2>
+            <p class="engine-desc">One of the oldest and largest search engines on the dark web, containing millions of indexed onion pages.</p>
+            <div class="onion-link-container">
+                <code id="link-torch">xmh57jrknzkhv6y3ls3ubitzfqnkrwxhopf5aygthi7d6rplyvk3noyd.onion</code>
+                <button onclick="copyLink('link-torch', this)">Copy</button>
+            </div>
+        </div>
+
+        <!-- Haystak -->
+        <div class="engine-card">
+            <h2 class="engine-name">Haystak</h2>
+            <p class="engine-desc">Known for its massive index. The free version is highly useful, performing deep scans of dark web content.</p>
+            <div class="onion-link-container">
+                <code id="link-haystak">haystak5njsmn2hqkewlzpvdndsqassh2d4tozxburgzzloaeok2igyd.onion</code>
+                <button onclick="copyLink('link-haystak', this)">Copy</button>
+            </div>
+        </div>
+
+        <!-- Excavator -->
+        <div class="engine-card">
+            <h2 class="engine-name">Excavator</h2>
+            <p class="engine-desc">A privacy-focused search engine that operates entirely without JavaScript, providing an extra layer of security.</p>
+            <div class="onion-link-container">
+                <code id="link-excavator">2fd6cemt4sadlzmacwkboaoc5vzweqvwl4ymclzhzzaesg22jyyq2xyd.onion</code>
+                <button onclick="copyLink('link-excavator', this)">Copy</button>
+            </div>
+        </div>
+
+       
+
+
+    <script>
+        function copyLink(elementId, btnElement) {
+            // Get the text from the code element
+            const textToCopy = document.getElementById(elementId).innerText;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                // Change button text temporarily
+                const originalText = btnElement.innerText;
+                btnElement.innerText = "Copied!";
+                btnElement.style.background = "#fff";
+                
+                setTimeout(() => {
+                    btnElement.innerText = originalText;
+                    btnElement.style.background = "var(--accent)";
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+                alert('Copy failed!');
+            });
+        }
+    </script>
+</body>
+</html>
