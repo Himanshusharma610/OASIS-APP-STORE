@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oasis | Local App Store - Coming Soon</title>
     <style>
+        :root {
+            --bg-color: #0f111a;
+            --card-bg: #1e2130;
+            --text-main: #e0e6ed;
+            --text-muted: #8b949e;
+            --accent: #00ff88;
+            --border: #30363d;
+            --warning-bg: rgba(255, 60, 60, 0.1);
+            --warning-border: #ff3c3c;
+        }
+
         /* Base Reset */
         * {
             margin: 0;
@@ -15,8 +26,8 @@
 
         /* Body & Background */
         body {
-            background: linear-gradient(135deg, #000000 0%, #000000 100%);
-            color: #e20000;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -37,9 +48,9 @@
             font-size: 4rem;
             font-weight: 800;
             letter-spacing: 4px;
-            color: #036206;
+            color: var(--accent);
             margin-bottom: 5px;
-            text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.25);
             text-transform: uppercase;
         }
 
@@ -48,7 +59,7 @@
             font-size: 1.2rem;
             font-weight: 500;
             letter-spacing: 6px;
-            color: #036206;
+            color: var(--accent);
             margin-bottom: 30px;
             text-transform: uppercase;
         }
@@ -56,15 +67,15 @@
         /* Coming Soon Badge */
         .coming-soon-badge {
             display: inline-block;
-            background: rgba(56, 189, 248, 0.1);
-            color: #036206;
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--accent);
             padding: 8px 24px;
             border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
-            border: 1px solid rgba(56, 189, 248, 0.3);
+            border: 1px solid rgba(0, 255, 136, 0.3);
             margin-bottom: 30px;
             animation: pulse 2s infinite;
         }
@@ -73,7 +84,7 @@
         .progress-container {
             width: 100%;
             height: 4px;
-            background: #334155;
+            background: var(--border);
             border-radius: 4px;
             overflow: hidden;
             position: relative;
@@ -83,7 +94,7 @@
         .progress-bar {
             width: 30%;
             height: 100%;
-            background: #036206;
+            background: var(--accent);
             border-radius: 4px;
             position: absolute;
             animation: loading 2s infinite ease-in-out;
@@ -99,8 +110,8 @@
         }
 
         .feature-card {
-            background: rgba(20, 28, 41, 0.6);
-            border: 1px solid rgba(56, 189, 248, 0.1);
+            background: rgba(30, 33, 48, 0.85);
+            border: 1px solid rgba(48, 54, 61, 0.9);
             padding: 24px;
             border-radius: 12px;
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -108,7 +119,7 @@
 
         .feature-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(56, 189, 248, 0.4);
+            border-color: rgba(0, 255, 136, 0.4);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
@@ -118,14 +129,14 @@
         }
 
         .feature-title {
-            color: #036206;
+            color: var(--accent);
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 8px;
         }
 
         .feature-desc {
-            color: #036206;
+            color: var(--text-muted);
             font-size: 0.9rem;
             line-height: 1.5;
         }
@@ -139,11 +150,11 @@
             display: inline-block;
             padding: 12px 28px;
             background: transparent;
-            color: #036206;
+            color: var(--accent);
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
-            border: 2px solid #38bdf8;
+            border: 2px solid rgba(0, 255, 136, 0.8);
             border-radius: 8px;
             transition: all 0.3s ease;
             text-transform: uppercase;
@@ -151,9 +162,9 @@
         }
 
         .os-btn:hover {
-            background: #38bdf8;
-            color: #0f172a;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+            background: rgba(0, 255, 136, 0.9);
+            color: #0f111a;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
             transform: translateY(-2px);
         }
 
@@ -161,7 +172,7 @@
         .footer {
             margin-top: 50px;
             font-size: 0.85rem;
-            color: #036206;
+            color: var(--text-muted);
         }
 
         /* Animations */
@@ -227,10 +238,12 @@
                 <div class="feature-title">paid version</div>
                 <div class="feature-desc">Highly Secure apps</div>
             </div>
-            <div class="feature-card">
+
+            <!-- Click on Links card to open engine.html -->
+            <a class="feature-card" href="engine.html" style="text-decoration:none;">
                 <div class="feature-title">Links</div>
                 <div class="feature-desc">Anonymous groups & darkweb links</div>
-            </div>
+            </a>
         </div>
 
        
