@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity & Privacy OS Directory</title>
+    <style>
+        :root {
+            --bg-color: #0a0c10;
+            --card-bg: #151821;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent: #00ff88;
+            --border: #30363d;
+            --easy: #3fb950;
+            --medium: #d29922;
+            --hard: #f85149;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--accent);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .search-container {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        #searchInput {
+            width: 100%;
+            max-width: 500px;
+            padding: 0.75rem 1rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #searchInput:focus {
+            border-color: var(--accent);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background-color: #1c212b;
+            color: var(--accent);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: rgba(0, 255, 136, 0.05);
+        }
+
+        .os-name {
+            font-weight: bold;
+            color: #58a6ff;
+        }
+
+        .badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #0a0c10;
+            display: inline-block;
+        }
+
+        .badge-easy { background-color: var(--easy); }
+        .badge-medium { background-color: var(--medium); }
+        .badge-hard { background-color: var(--hard); }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+
+        .dev-badge {
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>$ SUDO</h1>
+            <p style="color: var(--text-muted);">Cybersecurity, Hacking & Privacy Operating Systems</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search by OS Name, Purpose, or Feature..." onkeyup="filterTable()">
+        </div>
+
+        <div class="table-container">
+            <table id="osTable">
+                <thead>
+                    <tr>
+                        <th>OS Name</th>
+                        <th>Main Purpose</th>
+                        <th>Difficulty</th>
+                        <th>Special Feature</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="os-name">Kali Linux</td><td>Penetration Testing</td><td><span class="badge badge-medium">Medium</span></td><td>600+ security tools</td></tr>
+                    <tr><td class="os-name">Parrot Security OS</td><td>Ethical Hacking + Privacy</td><td><span class="badge badge-medium">Easy-Medium</span></td><td>Lightweight & anonymous tools</td></tr>
+                    <tr><td class="os-name">Tails</td><td>Anonymous Browsing</td><td><span class="badge badge-easy">Easy</span></td><td>Runs from USB, no traces</td></tr>
+                    <tr><td class="os-name">BlackArch Linux</td><td>Advanced Pentesting</td><td><span class="badge badge-hard">Hard</span></td><td>2500+ hacking tools</td></tr>
+                    <tr><td class="os-name">Qubes OS</td><td>High Security Isolation</td><td><span class="badge badge-hard">Hard</span></td><td>VM-based isolation</td></tr>
+                    <tr><td class="os-name">Whonix</td><td>Anonymous Research</td><td><span class="badge badge-medium">Medium</span></td><td>Tor-only traffic</td></tr>
+                    <tr><td class="os-name">BackBox</td><td>Pentesting</td><td><span class="badge badge-medium">Easy-Medium</span></td><td>Ubuntu based</td></tr>
+                    <tr><td class="os-name">Pentoo</td><td>Security Testing</td><td><span class="badge badge-hard">Hard</span></td><td>Live CD pentesting</td></tr>
+                    <tr><td class="os-name">CAINE</td><td>Digital Forensics</td><td><span class="badge badge-medium">Medium</span></td><td>Forensics tools</td></tr>
+                    <tr><td class="os-name">DEFT Linux</td><td>Digital Investigation</td><td><span class="badge badge-medium">Medium</span></td><td>Incident response</td></tr>
+                    <tr><td class="os-name">ArchStrike</td><td>Security Research</td><td><span class="badge badge-hard">Hard</span></td><td>Arch-based security tools</td></tr>
+                    <tr><td class="os-name">Kodachi Linux</td><td>Privacy & Security</td><td><span class="badge badge-medium">Easy-Medium</span></td><td>VPN + Tor integration</td></tr>
+                    <tr><td class="os-name">Fedora Security Lab</td><td>Security Auditing</td><td><span class="badge badge-medium">Medium</span></td><td>Fedora-based toolkit</td></tr>
+                    <tr><td class="os-name">Samurai Web Testing Framework</td><td>Web Pentesting</td><td><span class="badge badge-medium">Medium</span></td><td>Web app testing</td></tr>
+                    <tr><td class="os-name">Bugtraq</td><td>Multi-purpose Security</td><td><span class="badge badge-medium">Medium</span></td><td>Multiple desktop support</td></tr>
+                    <tr><td class="os-name">NST</td><td>Network Security</td><td><span class="badge badge-medium">Medium</span></td><td>Network analysis tools</td></tr>
+                    <tr><td class="os-name">Helix</td><td>Forensics</td><td><span class="badge badge-medium">Medium</span></td><td>Incident response</td></tr>
+                    <tr><td class="os-name">Security Onion</td><td>SOC / Blue Team</td><td><span class="badge badge-hard">Medium-Hard</span></td><td>IDS & log monitoring</td></tr>
+                    <tr><td class="os-name">Kodachi</td><td>Anonymous Usage</td><td><span class="badge badge-easy">Easy</span></td><td>DNS leak protection</td></tr>
+                    <tr><td class="os-name">Subgraph OS</td><td>Secure Computing</td><td><span class="badge badge-medium">Medium</span></td><td>Sandboxing security</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+         
+            <p>Developed by <span class="dev-badge">$SUDO</span></p>
+        </footer>
+    </div>
+
+    <script>
+        function filterTable() {
+            let input = document.getElementById("searchInput");
+            let filter = input.value.toUpperCase();
+            let table = document.getElementById("osTable");
+            let tr = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < tr.length; i++) { // Start from 1 to skip table header
+                let tdArray = tr[i].getElementsByTagName("td");
+                let rowMatches = false;
+                
+                for (let j = 0; j < tdArray.length; j++) {
+                    if (tdArray[j]) {
+                        if (tdArray[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                            rowMatches = true;
+                            break;
+                        }
+                    }
+                }
+                
+                if (rowMatches) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
