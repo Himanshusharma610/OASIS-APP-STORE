@@ -34,6 +34,27 @@
             justify-content: center;
             text-align: center;
             padding: 40px 20px;
+
+            /* background image */
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Dark overlay for readability */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 17, 26, 0.75);
+            z-index: 0;
+        }
+
+        /* Ensure page content is above overlay */
+        .container {
+            position: relative;
+            z-index: 1;
         }
 
         /* Main Container */
